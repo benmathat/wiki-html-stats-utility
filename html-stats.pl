@@ -7,7 +7,7 @@ use HTML::TokeParser ();
 
 use Data::Dumper ();
 
-my $dir = $ARGV[0] || '/Users/ben.thomas/Documents/Content';
+my $dir = $ARGV[0] || '.';
 
 if ( !-d $dir ) {
     warn "Sorry, $dir is not a valid directory: $!";
@@ -122,8 +122,8 @@ my $image_count = @images;
 my $image_edit_time = sprintf( "%.1f", $image_count * ( 4 / 60 ) );
 my $topics__review_time =
     sprintf( "%.1f", $file_stats{'TOTALS'}{'topics'} * ( 10 / 60 ) );
-my $style_edit_time =
-    sprintf( "%.1f", ( $file_stats{'TOTALS'}{'word_count'} / 100 ) * ( 4 / 60 ) );
+my $style_edit_time = sprintf( "%.1f",
+    ( $file_stats{'TOTALS'}{'word_count'} / 100 ) * ( 4 / 60 ) );
 my $URL_edit_time =
     sprintf( "%.1f", $file_stats{'TOTALS'}{'url_count'} * ( 3 / 60 ) );
 
@@ -179,7 +179,7 @@ sub verify_URL {
 
     # Skip URLs that are for r1soft.com sites
     return if $url =~ m/\W?r1soft\.com/i;
-    
+
     # Skip file URLs
     return if $url =~ m/file\:/i;
 
