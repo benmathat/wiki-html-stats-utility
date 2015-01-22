@@ -16,8 +16,7 @@ if ( !-d $dir ) {
 
 my $file_name_match = '\.html?$';
 
-print
-    "Checking directory \'$dir\' for files matching regex \'$file_name_match\'.\n";
+print "Checking directory \'$dir\' for files matching regex \'$file_name_match\'.\n";
 
 my @files  = qw();
 my @images = qw();
@@ -122,14 +121,12 @@ my $image_count = @images;
 my $image_edit_time = sprintf( "%.1f", $image_count * ( 4 / 60 ) );
 my $topics__review_time =
     sprintf( "%.1f", $file_stats{'TOTALS'}{'topics'} * ( 10 / 60 ) );
-my $style_edit_time = sprintf( "%.1f",
-    ( $file_stats{'TOTALS'}{'word_count'} / 100 ) * ( 4 / 60 ) );
+my $style_edit_time = sprintf( "%.1f", ( $file_stats{'TOTALS'}{'word_count'} / 100 ) * ( 4 / 60 ) );
 my $URL_edit_time =
     sprintf( "%.1f", $file_stats{'TOTALS'}{'url_count'} * ( 3 / 60 ) );
 
-my $total_time =
-    $topics__review_time + $style_edit_time + $image_edit_time + $URL_edit_time;
-my $total_days = sprintf( "%.1f", $total_time / 6 );
+my $total_time  = $topics__review_time + $style_edit_time + $image_edit_time + $URL_edit_time;
+my $total_days  = sprintf( "%.1f", $total_time / 6 );
 my $total_weeks = sprintf( "%.1f", ( $total_time / 6 ) / 5 );
 
 print <<"EOM";
